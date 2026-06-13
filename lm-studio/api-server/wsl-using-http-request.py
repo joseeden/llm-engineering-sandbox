@@ -5,15 +5,21 @@ import os
 
 import requests
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
+
 LM_STUDIO_BASE_URL = os.getenv(
-    "LM_STUDIO_BASE_URL",
-    "http://localhost:1234"
+    "LM_STUDIO_BASE_URL"
 )
+
+MODEL_NAME = os.getenv("MODEL_NAME")
 
 response = requests.post(
     f"{LM_STUDIO_BASE_URL}/v1/chat/completions",
     json={
-        "model": "google/gemma-4-e4b",
+        "model": MODEL_NAME,
         "messages": [
             {
                 "role": "user",

@@ -4,10 +4,15 @@ import os
 
 from openai import OpenAI
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 LM_STUDIO_BASE_URL = os.getenv(
-    "LM_STUDIO_BASE_URL",
-    "http://localhost:1234"
+    "LM_STUDIO_BASE_URL"
 )
+
+MODEL_NAME = os.getenv("MODEL_NAME")
 
 client = OpenAI(
     base_url=f"{LM_STUDIO_BASE_URL}/v1",
@@ -15,7 +20,7 @@ client = OpenAI(
 )
 
 response = client.chat.completions.create(
-    model="google/gemma-4-e4b",
+    model=MODEL_NAME,
     messages=[
         {
             "role": "user",
