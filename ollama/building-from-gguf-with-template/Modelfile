@@ -1,0 +1,7 @@
+FROM ../models/Qwen_Qwen3-1.7B-Q4_K_M.gguf
+
+TEMPLATE """
+{{ if .System }}System: {{ .System }}{{ end }}
+User: {{ .Prompt }}
+Assistant:
+"""

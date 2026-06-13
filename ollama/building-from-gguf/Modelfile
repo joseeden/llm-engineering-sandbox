@@ -1,0 +1,1 @@
+FROM ../models/Qwen3-1.7B-UD-Q3_K_XL.gguf 
